@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_margin_top">50dp</dimen>
+    <dimen name="flag_width">130dp</dimen>
+    <dimen name="flag_height">80dp</dimen>
+    <dimen name="flag_default_margin">40dp</dimen>
+</resources>
