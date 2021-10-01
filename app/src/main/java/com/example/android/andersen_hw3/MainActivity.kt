@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.andersen_hw3.task_one.TaskOneActivity
+import com.example.android.andersen_hw3.task_two.TaskTwoActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun launchTaskTwoActivity(view: View) {
-
+        val intentTaskTwo = Intent(this, TaskTwoActivity::class.java)
+        startActivity(intentTaskTwo)
     }
 }

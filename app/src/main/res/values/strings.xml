@@ -2,4 +2,6 @@
     <string name="app_name">Andersen-HW3</string>
     <string name="btn_task_one_text">Задание 1</string>
     <string name="btn_task_two_text">Задание 2</string>
+    <string name="et_hint_text">Здесь введите URL-ссылку на картинку</string>
+    <string name="load_failed_message">Не удалось выполнить загрузку. Убедитесь, что вы вводите правильную ссылку для загрузки картинки.</string>
 </resources>
