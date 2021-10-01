@@ -4,4 +4,6 @@
     <string name="btn_task_two_text">Задание 2</string>
     <string name="et_hint_text">Здесь введите URL-ссылку на картинку</string>
     <string name="load_failed_message">Не удалось выполнить загрузку. Убедитесь, что вы вводите правильную ссылку для загрузки картинки.</string>
+    <string name="asynс_task_download_error">Ошибка загрузки</string>
+    <string name="on_resource_ready_log_message">OnResourceReady</string>
 </resources>
