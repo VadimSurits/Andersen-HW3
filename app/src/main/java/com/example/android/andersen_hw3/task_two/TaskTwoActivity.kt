@@ -18,6 +18,9 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.android.andersen_hw3.R
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
 class TaskTwoActivity : AppCompatActivity() {
 
@@ -35,7 +38,8 @@ class TaskTwoActivity : AppCompatActivity() {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 val url = v.text.toString()
 //                tryLoadPictureWithGlide(url)
-                tryLoadPictureWithAsyncTask(url)
+//                tryLoadPictureWithAsyncTask(url)
+                tryLoadPictureWithNewThread(url)
                 return@OnEditorActionListener true
             }
             false
@@ -63,6 +67,33 @@ class TaskTwoActivity : AppCompatActivity() {
                 }
             })
             .into(mImageView)
+    }
+
+    private fun tryLoadPictureWithNewThread(url: String?) {
+        Thread {
+            val bitmap = getBitmapFromURL(url)
+            runOnUiThread {
+                if (bitmap != null) {
+                    mImageView.setImageBitmap(bitmap)
+                } else {
+                    showToast()
+                }
+            }
+        }.start()
+    }
+
+    fun getBitmapFromURL(src: String?): Bitmap? {
+        return try {
+            val url = URL(src)
+            val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
+            connection.setDoInput(true)
+            connection.connect()
+            val input: InputStream = connection.getInputStream()
+            return BitmapFactory.decodeStream(input)
+        } catch (e: Exception) {
+            Log.e(logTag, e.printStackTrace().toString())
+            null
+        }
     }
 
     private fun tryLoadPictureWithAsyncTask(url: String?) {
